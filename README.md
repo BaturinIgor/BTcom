@@ -1,4 +1,4 @@
-# Инструкция по зпуску тестов
+# Инструкция по запуску тестов
 
     git clone https://github.com/BaturinIgor/BTcom.git
     cd tests
