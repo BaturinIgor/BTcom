@@ -26,14 +26,11 @@ class TestGetToken(unittest.TestCase):
         }
 
     def test_get_correct_token(self):
-        try:
-            response = requests.post(self.url, json=self.data, timeout=0.8)
-            request_json = json.loads(response.text)
-            self.assertNotEqual(request_json["access_token"], "")
-            self.assertTrue(isinstance(request_json["access_token"], str))
-            self.assertEqual(response.status_code, 200)
-        except:
-            self.fail("Request execution time exceeded")
+        response = requests.post(self.url, json=self.data)
+        request_json = json.loads(response.text)
+        self.assertNotEqual(request_json["access_token"], "")
+        self.assertTrue(isinstance(request_json["access_token"], str))
+        self.assertEqual(response.status_code, 200)
 
     def test_get_incorrect_username_token(self):
         try:
